@@ -41,4 +41,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getImageAttribute($value) {
+        return $value ? asset('user_images/'.$value) : asset('images/blank.png') ;
+    }
+
+    public function houses(){
+        return $this->hasMany(House::class);
+    }
 }

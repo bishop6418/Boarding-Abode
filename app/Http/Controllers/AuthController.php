@@ -23,13 +23,13 @@ class AuthController extends Controller
 
         $token = $user->createToken('authToken')->accessToken;
 
-        return response()->json(['user' => $user, 'access_token' => $token->token]);
+        return response()->json(['user' => $user, 'access_token' => $token]);
     }
 
     public function logout()
     {
         if(Auth::logout()){
-            return response(['message' => 'successfully logged out']);
+            return response(['message' => 'Successfully logged out']);
         }
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserPostRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UserPostRequest;
 
 class UserController extends Controller
 {
@@ -60,7 +60,7 @@ class UserController extends Controller
         $user->save();
         $token = $user->createToken('ACCESS TOKEN')->accessToken;;
 
-        return response(['user' =>$user->image, 'access_token' => $token]);
+        return response(['user' =>$user, 'access_token' => $token]);
     }
 
     public function changeProfilePhoto(Request $request)
