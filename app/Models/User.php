@@ -46,7 +46,12 @@ class User extends Authenticatable
         return $value ? asset('user_images/'.$value) : asset('images/blank.png') ;
     }
 
-    public function houses(){
-        return $this->hasMany(House::class);
+    public function posts(){
+        return $this->hasMany(Post::class);
     }
+
+    public function documents(){
+        return $this->hasMany(Document::class);
+    }
+
 }
