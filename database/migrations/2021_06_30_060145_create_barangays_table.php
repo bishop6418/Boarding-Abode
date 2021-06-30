@@ -15,6 +15,9 @@ class CreateBarangaysTable extends Migration
     {
         Schema::create('barangays', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('short_name');
+            $table->foreignId('city_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

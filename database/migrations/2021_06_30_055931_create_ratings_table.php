@@ -14,7 +14,10 @@ class CreateRatingsTable extends Migration
     public function up()
     {
         Schema::create('ratings', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('rate');
+            $table->foreignId('post_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

@@ -14,7 +14,11 @@ class CreateReactionsTable extends Migration
     public function up()
     {
         Schema::create('reactions', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('type');
+            $table->integer('count');
+            $table->foreignId('post_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
