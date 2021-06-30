@@ -54,4 +54,15 @@ class User extends Authenticatable
         return $this->hasMany(Document::class);
     }
 
+    public function ratings(){
+        return $this->hasMany(Rating::class);
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
+    public function reations(){
+        return $this->hasMany(Reaction::class);
+    }
 }

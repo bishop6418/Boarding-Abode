@@ -12,4 +12,20 @@ class Post extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function ratings(){
+        return $this->hasMany(Rating::class);
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
+    public function images(){
+        return $this->hasMany(Image::class);
+    }
+
+    public function reactions(){
+        return $this->hasMany(Reaction::class);
+    }
 }
