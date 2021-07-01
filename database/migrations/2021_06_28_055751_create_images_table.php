@@ -17,7 +17,6 @@ class CreateImagesTable extends Migration
             $table->bigIncrements('id');
             $table->string('url');
             $table->foreignId('post_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

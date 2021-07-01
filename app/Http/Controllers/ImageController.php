@@ -35,7 +35,11 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $img = new Image();
+        $request->image = uploadPhotos($request->image, auth()->user()->name.'/'.'images/');
+        $img->url = $request->image;
+        $img->post_id = $request->post_id;
+        $img->save();
     }
 
     /**
@@ -44,20 +48,10 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function show(Image $image)
+    public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Image  $image
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Image $image)
-    {
-        //
+        $img = Image::find($id);
+        return $img->url;
     }
 
     /**
@@ -67,9 +61,12 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Image $image)
+    public function update(Request $request, $id)
     {
-        //
+        $img = Image::findOrFail($id);
+        $request->image = uploadPhotos($request->image, auth()->user()->name.'/'.'images/');
+        $img->url = $request->image;
+        $img->save();
     }
 
     /**

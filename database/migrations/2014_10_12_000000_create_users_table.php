@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('mobile');
             $table->string('image')->nullable();
             $table->integer('hasBoarding')->default(0);
-            $table->tinyIncrements('status')->default(0);
+            $table->integer('status')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

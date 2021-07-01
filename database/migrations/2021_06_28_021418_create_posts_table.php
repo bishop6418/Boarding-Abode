@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->string('country');
             $table->string('landmark');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }
